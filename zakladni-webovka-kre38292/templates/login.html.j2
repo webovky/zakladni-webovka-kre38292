@@ -1,0 +1,17 @@
+{% extends "base.html.j2" %}
+
+{%block title%}Login{%endblock%}
+
+{% block obsah %}
+
+<h1>Login</h1>
+
+<form method="post">
+    login:<br>
+    <input type="text" name="nick" > <br>
+    passwd:<br>
+    <input type="password" name="pswd" ><br>
+    <button>LogIn</button>
+</form>
+
+{% endblock obsah %}
