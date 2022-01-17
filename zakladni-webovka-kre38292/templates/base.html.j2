@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>{%block title%}Marvel{%endblock%}</title>
+    
+    <link rel="stylesheet" 
+          href="{{ url_for('static', filename='styles.css')}}">
+
+</head>
+
+<body>
+ <h1>Menu</h1>
+
+<ul>
+    <li><a href="{{ url_for('index') }}">Home</a></li>
+    <li><a href="{{ url_for('mcu') }}">MCU</a></li>
+    <li><a href="{{ url_for('spoilery') }}">Spoilery</a></li>
+    <li><a href="/stanlee/ahoj">Stan Lee</a></li>
+    <li><a href="{{ url_for('login') }}">Login</a></li>
+</ul>
+
+<p class="login">
+{% if "user" in session %}
+Vítej do klubu Avengerů, <strong>{{session.get("user")}}</strong>
+<a href="{{ url_for("logout") }}">Odhlásit</a>
+{% else %}
+Nejsi přihlášen!
+<a href="{{ url_for("login") }}">Přihlásit</a>
+{% endif %}
+</p>
+
+{% for category, message in get_flashed_messages(with_categories=true)  %}
+    <p class="message {{category}}">{{message}}</p>
+{% endfor %}
+
+
+{% block obsah %}
+
+<h2>Marvel Comics</h2>
+
+<p>Marvel Worldwide, Inc., dnes známé také jako Marvel Comics, je americké komiksové vydavatelství spadající pod společnost Marvel Entertainment,<br>
+kterou od roku 2009 vlastní kolos The Walt Disney Company.<br>
+Společnost byla založena roku 1939 jako Timely Comics. V padesátých letech 20. století byla přejmenována na Atlas Comics a roku 1961 na Marvel Comics.<br>
+
+Ve své současné podobě funguje od roku 1961, kdy dostali prostor autoři jako Stan Lee, John Buscema, Jack Kirby a Steve Ditko.<br>
+To je také doba vzniku nejznámějších Marvel komiksů X-Men, Fantastic Four, Avengers, Strážci galaxie, Black Panther,<br>
+Vision, Iron Man, Spider-Man, Hulk, Thor, Captain America, Doctor Strange, Black Widow, Hawkeye nebo Daredevil a Punisher.
+
+<br>
+<p>Marvel Characters</p>
+<img src="{{ url_for('static', filename='The_Marvel_Universe.png') }}" alt="", width="600" height="400">
+{% endblock obsah %}
+
+{% block copy %}
+<p >© Filip Krejčí</p>
+{% endblock copy %}
+
+</body>
+</html>
+

@@ -1,0 +1,29 @@
+h1 {
+    color: rgb(50, 61, 214);
+}
+
+h2 {
+    color: rgba(192, 17, 17);
+}
+
+h3 {
+    color: rgb(153, 62, 62);
+}
+
+.message{
+    width: 35%;
+    border: solid black 2px;
+    padding: lem;
+    background-color: lightgray;
+}
+.pass{
+    color: green;
+}
+.err{
+    color: red;
+}
+mark {
+    background-color: rgb(255, 0, 0);
+    color: black;
+  }
+  
